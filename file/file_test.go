@@ -1,7 +1,7 @@
 package file
 
 import (
-	"github.com/mattes/migrate/migrate/direction"
+	"github.com/divoxx/migrate/migrate/direction"
 	"io/ioutil"
 	"os"
 	"path"

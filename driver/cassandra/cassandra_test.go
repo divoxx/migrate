@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/divoxx/migrate/file"
+	"github.com/divoxx/migrate/migrate/direction"
+	pipep "github.com/divoxx/migrate/pipe"
 	"github.com/gocql/gocql"
-	"github.com/mattes/migrate/file"
-	"github.com/mattes/migrate/migrate/direction"
-	pipep "github.com/mattes/migrate/pipe"
 )
 
 func TestMigrate(t *testing.T) {

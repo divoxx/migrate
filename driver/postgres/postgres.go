@@ -5,9 +5,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"github.com/divoxx/migrate/file"
+	"github.com/divoxx/migrate/migrate/direction"
 	"github.com/lib/pq"
-	"github.com/mattes/migrate/file"
-	"github.com/mattes/migrate/migrate/direction"
 	"strconv"
 )
 
