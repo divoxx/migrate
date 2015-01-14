@@ -50,10 +50,15 @@ func (driver *Driver) Close() error {
 }
 
 func (driver *Driver) ensureVersionTableExists() error {
-	_, err := driver.db.Exec("CREATE TABLE IF NOT EXISTS " + tableName + " (version int not null primary key);")
+	var table string
+	err := driver.db.QueryRow("SHOW TABLES LIKE ?;", tableName).Scan(&table)
 
-	if _, isWarn := err.(mysql.MySQLWarnings); err != nil && !isWarn {
-		return err
+	if err == sql.ErrNoRows {
+		_, err := driver.db.Exec("CREATE TABLE IF NOT EXISTS " + tableName + " (version int not null primary key);")
+
+		if _, isWarn := err.(mysql.MySQLWarnings); err != nil && !isWarn {
+			return err
+		}
 	}
 
 	return nil
